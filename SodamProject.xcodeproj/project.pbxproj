@@ -35,16 +35,6 @@
 			path = SodamProject;
 			sourceTree = "<group>";
 		};
-		292343B02E4B046300FD43E5 /* SodamProjectTests */ = {
-			isa = PBXFileSystemSynchronizedRootGroup;
-			path = SodamProjectTests;
-			sourceTree = "<group>";
-		};
-		292343BA2E4B046300FD43E5 /* SodamProjectUITests */ = {
-			isa = PBXFileSystemSynchronizedRootGroup;
-			path = SodamProjectUITests;
-			sourceTree = "<group>";
-		};
 /* End PBXFileSystemSynchronizedRootGroup section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -76,8 +66,6 @@
 			isa = PBXGroup;
 			children = (
 				292343A22E4B046200FD43E5 /* SodamProject */,
-				292343B02E4B046300FD43E5 /* SodamProjectTests */,
-				292343BA2E4B046300FD43E5 /* SodamProjectUITests */,
 				292343A12E4B046200FD43E5 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -130,9 +118,6 @@
 			dependencies = (
 				292343AF2E4B046300FD43E5 /* PBXTargetDependency */,
 			);
-			fileSystemSynchronizedGroups = (
-				292343B02E4B046300FD43E5 /* SodamProjectTests */,
-			);
 			name = SodamProjectTests;
 			packageProductDependencies = (
 			);
@@ -152,9 +137,6 @@
 			);
 			dependencies = (
 				292343B92E4B046300FD43E5 /* PBXTargetDependency */,
-			);
-			fileSystemSynchronizedGroups = (
-				292343BA2E4B046300FD43E5 /* SodamProjectUITests */,
 			);
 			name = SodamProjectUITests;
 			packageProductDependencies = (
@@ -410,7 +392,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = yxxunseo.SodamProject;
+				PRODUCT_BUNDLE_IDENTIFIER = com.yxxunseo.SodamProject;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -438,7 +420,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = yxxunseo.SodamProject;
+				PRODUCT_BUNDLE_IDENTIFIER = com.yxxunseo.SodamProject;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -456,7 +438,7 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 18.5;
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = yxxunseo.SodamProjectTests;
+				PRODUCT_BUNDLE_IDENTIFIER = com.yxxunseo.SodamProjectTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
@@ -475,7 +457,7 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 18.5;
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = yxxunseo.SodamProjectTests;
+				PRODUCT_BUNDLE_IDENTIFIER = com.yxxunseo.SodamProjectTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
@@ -492,7 +474,7 @@
 				DEVELOPMENT_TEAM = AVYL2S59ZR;
 				GENERATE_INFOPLIST_FILE = YES;
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = yxxunseo.SodamProjectUITests;
+				PRODUCT_BUNDLE_IDENTIFIER = com.yxxunseo.SodamProjectUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
@@ -509,7 +491,7 @@
 				DEVELOPMENT_TEAM = AVYL2S59ZR;
 				GENERATE_INFOPLIST_FILE = YES;
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = yxxunseo.SodamProjectUITests;
+				PRODUCT_BUNDLE_IDENTIFIER = com.yxxunseo.SodamProjectUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;

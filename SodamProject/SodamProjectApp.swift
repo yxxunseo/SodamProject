@@ -11,7 +11,9 @@ import SwiftUI
 struct SodamProjectApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            NavigationStack {
+                SignAgreeView()
+            }
         }
     }
 }

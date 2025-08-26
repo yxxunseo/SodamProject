@@ -1,19 +1,18 @@
 //
-//  HomeView.swift
+//  NotificationView.swift
 //  SodamProject
 //
-//  Created by 강윤서 on 8/12/25.
+//  Created by 강윤서 on 8/26/25.
 //
 
 import SwiftUI
 
-struct HomeView: View {
+struct NotificationView: View {
     var body: some View {
         Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
-        
     }
 }
 
 #Preview {
-    HomeView()
+    NotificationView()
 }

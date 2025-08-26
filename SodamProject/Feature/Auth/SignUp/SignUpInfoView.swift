@@ -158,12 +158,18 @@ struct SignUpInfoView: View {
                     .padding(.bottom, 24)
                 }
             }
+            .contentShape(Rectangle())
+            .onTapGesture{
+                UIApplication.shared.sendAction(#selector(UIResponder.resolveInstanceMethod(_:)), to: nil, from: nil, for: nil)
+            }
             .ignoresSafeArea(.keyboard, edges: .bottom)
             .navigationBarHidden(true)
+            .navigationDestination(isPresented: $goNext) {
+                SignUpUserView()
+            }
         }
     }
 
-    // MARK: - Helpers
     private func groupField<Content: View>(title: String, @ViewBuilder content: () -> Content) -> some View {
         VStack(alignment: .leading, spacing: 6) {
             Text(title).font(.subheadline.weight(.semibold))

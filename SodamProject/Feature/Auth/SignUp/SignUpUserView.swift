@@ -17,13 +17,13 @@ struct SignUpUserView: View {
     
     private var dateFormatter: DateFormatter {
         let formatter = DateFormatter()
-        formatter.dateFormat = "yyyy.MM.dd"
+        formatter.dateFormat = "yyyy-MM-dd"
         return formatter
     }
-
+    
     private var isNextEnabled: Bool {
-        !name.isEmpty && !phone.isEmpty
-    }
+            !name.isEmpty && !phone.isEmpty
+        }
 
     var body: some View {
         NavigationStack {
@@ -61,7 +61,16 @@ struct SignUpUserView: View {
                             groupField(title: "전화번호") {
                                 InputField(placeholder: "전화번호를 입력해 주세요",
                                            text: $phone,
-                                           keyboardType: .phonePad)
+                                           keyboardType: .numberPad)
+                                .onChange(of: phone) {_, newValue in
+                                    let numbersOnly = newValue.components(separatedBy: CharacterSet.decimalDigits.inverted).joined()
+                                    let limited = String(numbersOnly.prefix(11))
+                                    let formatted = formatPhoneNumber(limited)
+                                    
+                                    if formatted != newValue {
+                                        phone = formatted
+                                    }
+                                }
                             }
 
                             groupField(title: "생년월일") {
@@ -104,6 +113,15 @@ struct SignUpUserView: View {
                     .padding(.horizontal, 20)
                     .padding(.bottom, 24)
                 }
+                .ignoresSafeArea(.keyboard, edges: .bottom)
+                .navigationBarHidden(true)
+                .navigationDestination(isPresented: $goNext) {
+                    SignUpAgreeView()
+                }
+            }
+            .contentShape(Rectangle())
+            .onTapGesture{
+                UIApplication.shared.sendAction(#selector(UIResponder.resolveInstanceMethod(_:)), to: nil, from: nil, for: nil)
             }
             .ignoresSafeArea(.keyboard, edges: .bottom)
             .navigationBarHidden(true)
@@ -142,6 +160,23 @@ struct SignUpUserView: View {
         guard isNextEnabled else { return }
         goNext = true
     }
+    
+    // 전화번호 포맷팅 함수
+        private func formatPhoneNumber(_ numbers: String) -> String {
+            switch numbers.count {
+            case 0...3:
+                return numbers
+            case 4...7:
+                let index = numbers.index(numbers.startIndex, offsetBy: 3)
+                return "\(numbers[..<index])-\(numbers[index...])"
+            case 8...11:
+                let firstIndex = numbers.index(numbers.startIndex, offsetBy: 3)
+                let secondIndex = numbers.index(numbers.startIndex, offsetBy: 7)
+                return "\(numbers[..<firstIndex])-\(numbers[firstIndex..<secondIndex])-\(numbers[secondIndex...])"
+            default:
+                return numbers
+            }
+        }
 }
 
 #Preview {

@@ -12,7 +12,7 @@ struct SodamProjectApp: App {
     var body: some Scene {
         WindowGroup {
             NavigationStack {
-                SignAgreeView()
+                SignUpInfoView()
             }
         }
     }

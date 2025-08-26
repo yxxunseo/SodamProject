@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct SignAgreeView: View {
+struct SignUpAgreeView: View {
     @Environment(\.dismiss) private var dismiss
     @State private var agreeAll = false
     @State private var agreeService = false
@@ -15,7 +15,7 @@ struct SignAgreeView: View {
     @State private var agreeLocationService = false
     @State private var agreeAge = false
     @State private var agreeMarketing = false
-    @State private var goNext = false
+    @State private var navigateToHome = false
     
     private var isNextEnabled: Bool {
         agreeService && agreePersonalInfo && agreeLocationService && agreeAge
@@ -27,17 +27,17 @@ struct SignAgreeView: View {
                 VStack(spacing: 35) {
                     VStack(spacing: 10) {
                         HStack(spacing: 24) {
-                            Button { dismiss() } label: {
+                            NavigationLink(destination: SignUpUserView()) {
                                 Image(systemName: "chevron.left")
                                     .font(.title3.weight(.semibold))
+                                    .foregroundColor(Color(red: 0.29, green: 0.29, blue: 0.29))
                             }
-                            .foregroundColor(Color(red: 0.29, green: 0.29, blue: 0.29))
                             Spacer()
                         }
                         .padding(.horizontal, 20)
                         .padding(.top, 12)
                         
-                        ProgressBarView(currentStep: 3, totalSteps: 5)
+                        ProgressBarView(currentStep: 3, totalSteps: 4)
                             .padding(.horizontal, 130)
                     }
 
@@ -152,6 +152,9 @@ struct SignAgreeView: View {
                 }
             }
             .navigationBarHidden(true)
+            .navigationDestination(isPresented: $navigateToHome) {
+                HomeView()
+            }
         }
         .onChange(of: agreeService) {
             updateAgreeAll()
@@ -187,8 +190,7 @@ struct SignAgreeView: View {
                     .overlay(
                         Image(systemName: "checkmark")
                             .font(.system(size: 12, weight: .bold))
-                            .foregroundColor(.white)
-                            .opacity(isSelected.wrappedValue ? 1 : 0)
+                            .foregroundColor(isSelected.wrappedValue ? .white : .gray.opacity(0.6))
                     )
             }
             
@@ -220,10 +222,10 @@ struct SignAgreeView: View {
     
     private func onTapComplete() {
         guard isNextEnabled else { return }
-        goNext = true
+        navigateToHome = true
     }
 }
 
 #Preview {
-    SignAgreeView()
+    SignUpAgreeView()
 }

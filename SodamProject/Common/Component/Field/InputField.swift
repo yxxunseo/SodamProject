@@ -33,9 +33,11 @@ struct InputField: View {
                 if isSecure {
                     SecureField("", text: $text)
                         .focused($isFocused)
+                        .keyboardType(keyboardType)
                 } else {
                     TextField("", text: $text)
                         .focused($isFocused)
+                        .keyboardType(keyboardType)
                 }
             }
             .padding(.vertical, 12)

@@ -34,6 +34,7 @@ struct Tabbar: View {
                     item: item,
                     isSelected: selectedTab == item.id
                 )
+                .contentShape(Rectangle())
                 .onTapGesture{
                     selectedTab = item.id
                 }

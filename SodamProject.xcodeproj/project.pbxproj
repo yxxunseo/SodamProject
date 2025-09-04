@@ -6,6 +6,10 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		29A3BA722E67F63D00A16C59 /* KakaoMapsSDK-SPM in Frameworks */ = {isa = PBXBuildFile; productRef = 29A3BA712E67F63D00A16C59 /* KakaoMapsSDK-SPM */; };
+/* End PBXBuildFile section */
+
 /* Begin PBXContainerItemProxy section */
 		292343AE2E4B046300FD43E5 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -29,9 +33,22 @@
 		292343B72E4B046300FD43E5 /* SodamProjectUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SodamProjectUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
+/* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
+		29A3BA742E67F94000A16C59 /* Exceptions for "SodamProject" folder in "SodamProject" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				Info.plist,
+			);
+			target = 2923439F2E4B046200FD43E5 /* SodamProject */;
+		};
+/* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
+
 /* Begin PBXFileSystemSynchronizedRootGroup section */
 		292343A22E4B046200FD43E5 /* SodamProject */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+				29A3BA742E67F94000A16C59 /* Exceptions for "SodamProject" folder in "SodamProject" target */,
+			);
 			path = SodamProject;
 			sourceTree = "<group>";
 		};
@@ -42,6 +59,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				29A3BA722E67F63D00A16C59 /* KakaoMapsSDK-SPM in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -66,6 +84,7 @@
 			isa = PBXGroup;
 			children = (
 				292343A22E4B046200FD43E5 /* SodamProject */,
+				29A3BA6D2E67F51400A16C59 /* Frameworks */,
 				292343A12E4B046200FD43E5 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -78,6 +97,13 @@
 				292343B72E4B046300FD43E5 /* SodamProjectUITests.xctest */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		29A3BA6D2E67F51400A16C59 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -100,6 +126,7 @@
 			);
 			name = SodamProject;
 			packageProductDependencies = (
+				29A3BA712E67F63D00A16C59 /* KakaoMapsSDK-SPM */,
 			);
 			productName = SodamProject;
 			productReference = 292343A02E4B046200FD43E5 /* SodamProject.app */;
@@ -177,6 +204,9 @@
 			);
 			mainGroup = 292343972E4B046200FD43E5;
 			minimizedProjectReferenceProxies = 1;
+			packageReferences = (
+				29A3BA702E67F58A00A16C59 /* XCRemoteSwiftPackageReference "KakaoMapsSDK-SPM" */,
+			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = 292343A12E4B046200FD43E5 /* Products */;
 			projectDirPath = "";
@@ -382,6 +412,8 @@
 				DEVELOPMENT_TEAM = AVYL2S59ZR;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = SodamProject/Info.plist;
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "앱 사용 중 현재 위치를 이용합니다.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -410,6 +442,8 @@
 				DEVELOPMENT_TEAM = AVYL2S59ZR;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = SodamProject/Info.plist;
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "앱 사용 중 현재 위치를 이용합니다.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -540,6 +574,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		29A3BA702E67F58A00A16C59 /* XCRemoteSwiftPackageReference "KakaoMapsSDK-SPM" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/kakao-mapsSDK/KakaoMapsSDK-SPM";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.12.10;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		29A3BA712E67F63D00A16C59 /* KakaoMapsSDK-SPM */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 29A3BA702E67F58A00A16C59 /* XCRemoteSwiftPackageReference "KakaoMapsSDK-SPM" */;
+			productName = "KakaoMapsSDK-SPM";
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 292343982E4B046200FD43E5 /* Project object */;
 }

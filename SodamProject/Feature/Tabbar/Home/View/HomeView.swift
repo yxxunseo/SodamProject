@@ -2,6 +2,7 @@ import SwiftUI
 
 struct HomeView: View {
     @State private var selectedTab = "home"
+    @State private var isKeyboardVisible = false
     
     let tabItems = [
         TabItem(id:"result", title: "결과", systemImage: "book.fill"),
@@ -17,7 +18,7 @@ struct HomeView: View {
                 MyAreaDiagnosisView()
                     .tag("result")
                 
-                ChatView()
+                DamsoView()
                     .tag("chat")
                 
                 homeContent
@@ -31,13 +32,24 @@ struct HomeView: View {
             }
             .tabViewStyle(PageTabViewStyle(indexDisplayMode: .never))
             
-            // 커스텀 탭바
-            Tabbar(selectedTab: $selectedTab, tabItems: tabItems)
+            if !isKeyboardVisible {
+                Tabbar(selectedTab: $selectedTab, tabItems: tabItems)
+            }
         }
         .navigationBarHidden(true)
+        .ignoresSafeArea(.keyboard, edges: .bottom)
+        .onReceive(NotificationCenter.default.publisher(for: UIResponder.keyboardWillShowNotification)) { _ in
+            withAnimation(.easeInOut(duration: 0.3)) {
+                isKeyboardVisible = true
+            }
+        }
+        .onReceive(NotificationCenter.default.publisher(for: UIResponder.keyboardWillHideNotification)) { _ in
+            withAnimation(.easeInOut(duration: 0.3)) {
+                isKeyboardVisible = false
+            }
+        }
     }
     
-    // 기존 홈 화면 내용
     private var homeContent: some View {
         NavigationView {
             VStack(spacing: 0) {
@@ -59,11 +71,10 @@ struct HomeView: View {
                         Image("cat")
                     }
                 }
-                .padding(.bottom, 15)
+                .padding(.bottom, 25)
                 
                 VStack(spacing: 15) {
                     HStack(spacing: 15) {
-                        // 내 상권 진단
                         NavigationLink(destination: MyAreaDiagnosisView()) {
                             MenuCardView(
                                 title: "내 상권 진단",

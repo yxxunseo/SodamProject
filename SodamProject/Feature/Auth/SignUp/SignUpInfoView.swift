@@ -21,7 +21,7 @@ struct SignUpInfoView: View {
     }
     
     private var isValidPassword: Bool {
-        password.isEmpty || isValidPasswordFormat(password)
+        password.count >= 8
     }
     
     private var passwordsMatch: Bool {
@@ -103,19 +103,6 @@ struct SignUpInfoView: View {
                                 InputField(placeholder: "비밀번호를 입력해 주세요",
                                            text: $password,
                                            isSecure: true)
-                                
-                                if !password.isEmpty {
-                                    if isValidPassword {
-                                        Text("비밀번호는 8자 이상, 문자·숫자·특수문자 중 2가지 이상 포함")
-                                            .font(.footnote)
-                                            .foregroundStyle(.green)
-                                            
-                                    } else {
-                                        Text("비밀번호는 8자 이상, 문자·숫자·특수문자 중 2가지 이상 포함")
-                                            .font(.footnote)
-                                            .foregroundStyle(.red)
-                                    }
-                                }
                             }
                             
 
@@ -189,17 +176,6 @@ struct SignUpInfoView: View {
         return emailPredicate.evaluate(with: email)
     }
     
-    // 비밀번호 형식 검증 함수
-    private func isValidPasswordFormat(_ password: String) -> Bool {
-        guard password.count >= 8 else { return false }
-        
-        let hasLetter = password.rangeOfCharacter(from: .letters) != nil
-        let hasNumber = password.rangeOfCharacter(from: .decimalDigits) != nil
-        let hasSpecial = password.rangeOfCharacter(from: CharacterSet(charactersIn: "!@#$%^&*()_+-=[]{}|;:,.<>?")) != nil
-        
-        let conditions = [hasLetter, hasNumber, hasSpecial].filter { $0 }
-        return conditions.count >= 2
-    }
 }
 
 #Preview {

@@ -15,10 +15,10 @@ struct LoginView: View {
     @State private var navigateToSighUp = false
     
     private var tempId: String = "1234" // 임시 아이디
-    private var tempPw: String = "1234" // 임시 비번
+    private var tempPw: String = "qwer1234" // 임시 비번
     
     var body: some View {
-        NavigationView {
+        NavigationStack {
             VStack(spacing: 0) {
                 Spacer()
                 AppName()
@@ -32,11 +32,16 @@ struct LoginView: View {
                 
                 DefaultButton(title: "로그인") {
                     // 로그인 로직 처리
-                    // 홈화면으로 이동
+                    if id == tempId && password == tempPw {
+                        navigateToHome = true
+                    } else {
+                        print("로그인 실패")
+                    }
                 }
                 .padding(.horizontal, 20)
                 .padding(.top, 32)
                 
+            
                 HStack(spacing: 10) {
                     Button("회원가입") {
                         navigateToSighUp = true
@@ -63,6 +68,13 @@ struct LoginView: View {
                 .padding(.top, 32)
                 
                 Spacer()
+            }
+            .navigationDestination(isPresented: $navigateToHome) {
+                HomeView()
+            }
+            
+            .navigationDestination(isPresented: $navigateToSighUp) {
+                SignUpInfoView()
             }
         }
     }

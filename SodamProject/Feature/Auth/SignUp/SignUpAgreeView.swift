@@ -153,7 +153,7 @@ struct SignUpAgreeView: View {
             }
             .navigationBarHidden(true)
             .navigationDestination(isPresented: $navigateToHome) {
-                HomeView()
+                SignUpView()
             }
         }
         .onChange(of: agreeService) {

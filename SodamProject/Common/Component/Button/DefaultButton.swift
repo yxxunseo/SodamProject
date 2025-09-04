@@ -14,7 +14,7 @@ struct DefaultButton: View {
     var backgroundColor: Color = Color(hex: "7DDB69")
     var textColor: Color = .white
     var font: Font = .headline
-    var cornerRadius: CGFloat = 8
+    var cornerRadius: CGFloat = 12
     var height: CGFloat = 50
     var shadowRadius: CGFloat = 2
     var shadowOffset: CGSize = CGSize(width: 0, height: 2)
